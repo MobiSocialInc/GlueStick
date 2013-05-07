@@ -17,6 +17,8 @@
 
 #import "GlueStick.h"
 
+static NSURL* g_gluestick_callbackURL;
+
 @implementation RichDeepLink {
 }
 
@@ -276,6 +278,16 @@
 +(BOOL) isTwoPlusInstalled {
     return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twoplus://app/content"]];
 }
+
++(UIPasteboard*) handleOpenURL:(NSURL*)url {
+    g_gluestick_callbackURL = [GlueStick callbackURLFromPasteboardURL:url];
+    return [UIPasteboard pasteboardWithName:kMobisocialPasteboard create:NO];
+}
+
++(NSURL*) callbackURL {
+    return g_gluestick_callbackURL;
+}
+
 
 +(NSURL*) callbackURLFromPasteboardURL:(NSURL*)pasteboardURL {
     NSString* callback = [self queryParameterFromURL:pasteboardURL withKey:@"callback"];
