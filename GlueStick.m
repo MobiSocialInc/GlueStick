@@ -287,6 +287,14 @@ static NSURL* g_gluestick_callbackURL;
     g_gluestick_callbackURL = [GlueStick callbackURLFromPasteboardURL:url];
 }
 
++(void) finish {
+    if (g_gluestick_callbackURL) {
+        [[UIApplication sharedApplication] openURL:g_gluestick_callbackURL];
+    } else {
+        NSLog(@"WARNING, no caller app for GlueStick to return to.");
+    }
+}
+
 +(NSURL*) callbackURL {
     return g_gluestick_callbackURL;
 }

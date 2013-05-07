@@ -50,6 +50,7 @@
 // lifecycle events
 + (void) handleLaunch;
 + (void) handleOpenURL:(NSURL*)url;
++ (void) finish;
 
 + (NSURL*) callbackURLFromPasteboardURL:(NSURL*)pasteboardURL;
 @end
