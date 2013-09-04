@@ -53,4 +53,5 @@
 + (void) finish;
 
 + (NSURL*) callbackURLFromPasteboardURL:(NSURL*)pasteboardURL;
++(UIPasteboard*) getPlatformPasteboard;
 @end
