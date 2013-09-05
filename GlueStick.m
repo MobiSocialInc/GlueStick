@@ -266,10 +266,10 @@ static NSURL* g_gluestick_callbackURL;
     [GlueStick putPasteboardRDL:obj];
 
     if ([GlueStick isOmletInstalled]) {
-        NSURL* url = [NSURL URLWithString:@"twoplus://app/content"];
+        NSURL* url = [NSURL URLWithString:@"omlet://app/content"];
         [[UIApplication sharedApplication] openURL:url];
     } else if ([GlueStick isTwoPlusInstalled]) {
-        NSURL* url = [NSURL URLWithString:@"omlet://app/content"];
+        NSURL* url = [NSURL URLWithString:@"twoplus://app/content"];
         [[UIApplication sharedApplication] openURL:url];
     } else {
         UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Omlet not installed." message:@"Omlet lets you share data with people in your address book, but it's not installed. Get it from the App Store." delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles: nil];
