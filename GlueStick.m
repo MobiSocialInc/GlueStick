@@ -257,6 +257,9 @@ static NSURL* g_gluestick_callbackURL;
     if (obj.callback) {
         [pbDictionary setObject:obj.callback forKey:@"callback"];
     }
+    if (obj.webCallback) {
+        [pbDictionary setObject:obj.webCallback forKey:@"webCallback"];
+    }
     
     NSData* archive = [NSKeyedArchiver archivedDataWithRootObject:pbDictionary];
     [pasteboard setData:archive forPasteboardType:@"mobisocial.app"];
